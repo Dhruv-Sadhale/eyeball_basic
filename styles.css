@@ -33,7 +33,7 @@ nav {
     width: 100%;
     padding: 1rem; /* Adjust padding as needed */
     display: flex;
-    justify-content:space-between;
+    justify-content:center;
     align-items: center;
     color: white; /* Adjust text color */
     font-weight: bold; /* Adjust font weight */

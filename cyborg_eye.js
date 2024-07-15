@@ -69,31 +69,31 @@ const eyelidMaterial = new THREE.MeshStandardMaterial({
   
   
 
-const upperEyelidShape = new THREE.Shape();
-upperEyelidShape.moveTo(-1, 0);
-upperEyelidShape.quadraticCurveTo(0, 1, 1, 0);
-upperEyelidShape.lineTo(1, 0.15);
-upperEyelidShape.quadraticCurveTo(0, 0.85, -1, 0.15);
-upperEyelidShape.lineTo(-1, 0);
+// const upperEyelidShape = new THREE.Shape();
+// upperEyelidShape.moveTo(-1, 0);
+// upperEyelidShape.quadraticCurveTo(0, 1, 1, 0);
+// upperEyelidShape.lineTo(1, 0.15);
+// upperEyelidShape.quadraticCurveTo(0, 0.85, -1, 0.15);
+// upperEyelidShape.lineTo(-1, 0);
 
-const upperEyelidGeometry = new THREE.ExtrudeGeometry(upperEyelidShape, { depth: 1.3, bevelEnabled: false });
-const upperEyelid = new THREE.Mesh(upperEyelidGeometry, eyelidMaterial);
-upperEyelid.position.set(0, 0.50, 0.5);
-upperEyelid.rotation.x = Math.PI / 8;
-cornea.add(upperEyelid);
+// const upperEyelidGeometry = new THREE.ExtrudeGeometry(upperEyelidShape, { depth: 1.3, bevelEnabled: false });
+// const upperEyelid = new THREE.Mesh(upperEyelidGeometry, eyelidMaterial);
+// upperEyelid.position.set(0, 0.50, 0.5);
+// upperEyelid.rotation.x = Math.PI / 8;
+// cornea.add(upperEyelid);
 
-const lowerEyelidShape = new THREE.Shape();
-lowerEyelidShape.moveTo(-1, 0);
-lowerEyelidShape.quadraticCurveTo(0, -1, 1, 0);
-lowerEyelidShape.lineTo(1, -0.15);
-lowerEyelidShape.quadraticCurveTo(0, -0.85, -1, -0.15);
-lowerEyelidShape.lineTo(-1, 0);
+// const lowerEyelidShape = new THREE.Shape();
+// lowerEyelidShape.moveTo(-1, 0);
+// lowerEyelidShape.quadraticCurveTo(0, -1, 1, 0);
+// lowerEyelidShape.lineTo(1, -0.15);
+// lowerEyelidShape.quadraticCurveTo(0, -0.85, -1, -0.15);
+// lowerEyelidShape.lineTo(-1, 0);
 
-const lowerEyelidGeometry = new THREE.ExtrudeGeometry(lowerEyelidShape, { depth: 1.3, bevelEnabled: false });
-const lowerEyelid = new THREE.Mesh(lowerEyelidGeometry, eyelidMaterial);
-lowerEyelid.position.set(0, -0.50, 0.5);
-lowerEyelid.rotation.x = -Math.PI / 7;
-cornea.add(lowerEyelid);
+// const lowerEyelidGeometry = new THREE.ExtrudeGeometry(lowerEyelidShape, { depth: 1.3, bevelEnabled: false });
+// const lowerEyelid = new THREE.Mesh(lowerEyelidGeometry, eyelidMaterial);
+// lowerEyelid.position.set(0, -0.50, 0.5);
+// lowerEyelid.rotation.x = -Math.PI / 7;
+// cornea.add(lowerEyelid);
 
 // Logo on Iris
 const logoTexture = new THREE.TextureLoader().load('ms_logo.png'); // Replace with your logo path
