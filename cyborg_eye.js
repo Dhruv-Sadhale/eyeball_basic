@@ -1,4 +1,3 @@
-
 import gsap from 'https://cdn.skypack.dev/gsap';
 
 console.clear();
@@ -22,27 +21,53 @@ scene.add(light);
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
 scene.add(ambientLight);
 
+
 // Cornea
 const corneaGeometry = new THREE.SphereGeometry(1, 64, 64);
 const corneaMaterial = new THREE.MeshStandardMaterial({
-  color: 0xffffff,
-  roughness: 0.1,
-  metalness: 0.8,
-  transparent: true,
-  opacity: 0.9,
-});
+    color: 0x3366ff, // Base color of the cornea
+    roughness: 0.1,
+    metalness: 0.8,
+    transparent: true,
+    opacity: 0.9,
+    wireframe: true, // Display mesh wireframe
+    wireframeLinewidth: 1, // Adjust thickness of wireframe lines
+    wireframeLinecap: 'round', // Rounded line ends for better appearance
+    wireframeLinejoin: 'round', // Rounded joints for wireframe
+  });
+  
+  
 const cornea = new THREE.Mesh(corneaGeometry, corneaMaterial);
+
+// Create wireframe material for cornea
+const wireframeMaterial = new THREE.MeshBasicMaterial({ color: 0x000000, wireframe: true });
+const corneaWireframe = new THREE.Mesh(corneaGeometry, wireframeMaterial);
+cornea.add(corneaWireframe); // Add wireframe as a child of the cornea
+
 scene.add(cornea);
 
 // Iris
 const irisGeometry = new THREE.SphereGeometry(0.3, 64, 64);
-const irisMaterial = new THREE.MeshStandardMaterial({ color: 0x0066ff, roughness: 0.5, metalness: 0.2 });
+const irisMaterial = new THREE.MeshStandardMaterial({
+    color: 0x00ffff, // Cyan
+    roughness: 0.5,
+    metalness: 0.2,
+  });
+  
+  
 const iris = new THREE.Mesh(irisGeometry, irisMaterial);
 iris.position.z = 0.8;
 cornea.add(iris);
 
 // Eyelids
-const eyelidMaterial = new THREE.MeshStandardMaterial({ color: 0xffcc99, roughness: 0.6, metalness: 0.1 });
+const eyelidMaterial = new THREE.MeshStandardMaterial({
+    color: 0x00008b, // Light silver color
+    roughness: 0.6,
+    metalness: 0.1,
+  });
+  
+  
+  
 
 const upperEyelidShape = new THREE.Shape();
 upperEyelidShape.moveTo(-1, 0);
@@ -77,6 +102,7 @@ const logoGeometry = new THREE.PlaneGeometry(0.4, 0.6); // Adjust size as needed
 const logoMesh = new THREE.Mesh(logoGeometry, logoMaterial);
 iris.add(logoMesh);
 logoMesh.position.set(0, 0, 0.31);
+
 
 // Animation timeline using GSAP
 const tl = gsap.timeline({ defaults: { duration: 1 } });
